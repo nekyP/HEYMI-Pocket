@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-release="public">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'self'; media-src 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10120f">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="HEYMI Pocket">
+  <meta name="description" content="HEYMI Pocket - a cozy companion game with pet care, activities, quests, and collections.">
+  <title>HEYMI Pocket</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./app.css?v=1.0.0-beta.3">
+</head>
+<body>
+  <div class="ambient-layer" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="profile-chip" type="button" data-open-tab="you" aria-label="Open profile">
+        <span class="profile-avatar">M</span>
+        <span><small id="day-label">HEYMI POCKET</small><b id="greeting-label">Good evening</b></span>
+      </button>
+      <div class="wordmark" aria-label="HEYMI Pocket Beta">HEY<span>MI</span><small>BETA</small></div>
+      <button class="link-chip desktop-only" id="header-link-button" type="button" data-open-tab="remote" aria-label="Open PC link">
+        <span class="link-dot"></span><span id="header-link-label">PC offline</span>
+      </button>
+    </header>
+
+    <main class="app-main" id="app-main">
+      <div class="save-warning" id="save-warning" role="alert" hidden><span>!</span><div><b>Progress is not saving</b><small>Keep this page open and export a backup from You.</small></div><button type="button" data-open-tab="you">Back up</button></div>
+      <section class="app-view is-active" data-view="home" aria-labelledby="home-title">
+        <div class="view-heading home-heading">
+          <div><p>YOUR COMPANION</p><h1 id="home-title"><span id="home-pet-name">Mimi</span> is waiting for you.</h1></div>
+          <button class="round-button" id="daily-gift-button" type="button" aria-label="Open daily gift">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM2.5 6.5h19V10h-19zM12 6.5V20M7.5 6.5c-2.6 0-3.4-3.8-.6-4 2.5-.2 5.1 4 5.1 4s-2.2 0-4.5 0Zm9 0c2.6 0 3.4-3.8.6-4-2.5-.2-5.1 4-5.1 4s2.2 0 4.5 0Z"/></svg>
+            <i></i>
+          </button>
+        </div>
+
+        <section class="pet-hero" id="home-pet-stage" aria-label="Interact with your HEYMI pet">
+          <div class="room-moon"></div><div class="room-window"><i></i><i></i><i></i></div>
+          <div class="mood-bubble" id="mood-bubble" role="status">I found a shiny thing!</div>
+          <button class="pet-touch-target" id="pet-touch-target" type="button" aria-label="Pet Mimi">
+            <span class="pet-aura"></span>
+            <img id="home-pet-image" src="./assets/origin.png" alt="Mimi, your HEYMI companion">
+            <span class="pet-accessory" id="home-pet-accessory" aria-hidden="true"></span>
+          </button>
+          <div class="hero-level"><span>LV</span><b id="hero-level">7</b></div>
+          <div class="hero-floor"></div>
+          <div class="pet-state"><span class="state-dot"></span><b id="pet-mood-label">Curious</b><small id="pet-state-copy">Tap Mimi to say hello</small></div>
+        </section>
+
+        <div class="care-actions" aria-label="Pet care actions">
+          <button type="button" data-care="feed"><span class="action-icon action-feed">◇</span><b>Feed</b><small id="feed-count">4 treats</small></button>
+          <button type="button" data-care="play"><span class="action-icon action-play">✦</span><b>Play</b><small>+ happiness</small></button>
+          <button type="button" data-care="rest"><span class="action-icon action-rest">☾</span><b>Rest</b><small>+ energy</small></button>
+        </div>
+
+        <section class="wellbeing-card surface-card">
+          <header><div><p>WELLBEING</p><h2>Feeling good</h2></div><button type="button" data-open-tab="pet">Details</button></header>
+          <div class="mini-stats">
+            <div><span><i class="stat-happiness"></i>Happy</span><b id="home-happiness-value">82%</b><progress id="home-happiness" max="100" value="82"></progress></div>
+            <div><span><i class="stat-energy"></i>Energy</span><b id="home-energy-value">68%</b><progress id="home-energy" max="100" value="68"></progress></div>
+            <div><span><i class="stat-hunger"></i>Full</span><b id="home-hunger-value">74%</b><progress id="home-hunger" max="100" value="74"></progress></div>
+          </div>
+        </section>
+
+        <section class="daily-card surface-card">
+          <div class="quest-art" aria-hidden="true"><span>✦</span><i></i></div>
+          <div class="daily-copy"><p>DAILY BOND</p><h2 id="daily-quest-title">Make Mimi smile</h2><small id="daily-quest-copy">Care for Mimi 3 times today.</small><div class="quest-progress"><progress id="daily-progress" max="3" value="0"></progress><b id="daily-progress-label">0 / 3</b></div></div>
+          <button id="daily-claim-button" type="button" disabled>+25</button>
+        </section>
+
+        <section class="section-block library-block desktop-only">
+          <header class="section-title"><div><p>FROM YOUR PC</p><h2>HEYMI worlds</h2></div><button type="button" data-open-tab="remote">Connect</button></header>
+          <div class="world-rail">
+            <article class="world-card world-starbloom"><div class="world-symbol">S</div><span>OPEN WORLD</span><h3>Starbloom Online</h3><p>Moonsteel Frontier</p><button type="button" data-world="Starbloom Online">View on PC</button></article>
+            <article class="world-card world-mmo"><div class="world-symbol">H</div><span>MMORPG</span><h3>HEYMI MMO</h3><p>Gloamwatch Shard</p><button type="button" data-world="HEYMI MMO">View on PC</button></article>
+            <article class="world-card world-mosaic"><div class="world-symbol">M</div><span>CREATOR HUB</span><h3>Mosaic</h3><p>Market & community</p><button type="button" data-world="Mosaic">View on PC</button></article>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-view" data-view="pet" aria-labelledby="pet-title" hidden>
+        <div class="view-heading">
+          <div><p>COMPANION</p><h1 id="pet-title">Make them yours.</h1></div>
+          <div class="currency-pill"><span>✦</span><b data-coin-count>120</b></div>
+        </div>
+
+        <section class="pet-studio surface-card">
+          <div class="studio-grid" aria-hidden="true"></div>
+          <div class="studio-label"><span>LIVE LOOK</span><b id="studio-pet-kind">Origin Mascot</b></div>
+          <img id="studio-pet-image" src="./assets/origin.png" alt="Current HEYMI companion appearance">
+          <span class="pet-accessory studio-accessory" id="studio-pet-accessory" aria-hidden="true"></span>
+          <button class="photo-button" id="photo-button" type="button" aria-label="Celebrate this look">✦</button>
+          <div class="studio-name"><span>LV <b id="studio-level">7</b></span><h2 id="studio-pet-name">Mimi</h2><small><b id="bond-value">64</b> bond</small></div>
+        </section>
+
+        <section class="custom-panel surface-card">
+          <header><div><p>COMPANION FORM</p><h2>Choose a friend</h2></div><span id="pet-count-label">1 / 4</span></header>
+          <div class="pet-picker" role="group" aria-label="Pet appearance">
+            <button class="is-selected" type="button" data-pet="origin" aria-pressed="true"><img src="./assets/origin.png" alt=""><span>Origin</span></button>
+            <button type="button" data-pet="default" aria-pressed="false"><img src="./assets/default.png" alt=""><span>Spark</span></button>
+            <button type="button" data-pet="dragon" aria-pressed="false"><img src="./assets/dragon.png" alt=""><span>Drake</span></button>
+            <button type="button" data-pet="cat" aria-pressed="false"><img src="./assets/cat.png" alt=""><span>Cipher</span></button>
+          </div>
+        </section>
+
+        <section class="custom-panel surface-card">
+          <header><div><p>AURA</p><h2>Glow color</h2></div><span id="aura-label">Moon gold</span></header>
+          <div class="swatch-row" role="radiogroup" aria-label="Aura color">
+            <button class="is-selected" type="button" data-aura="gold" aria-label="Moon gold" aria-checked="true" role="radio"></button>
+            <button type="button" data-aura="teal" aria-label="Signal teal" aria-checked="false" role="radio"></button>
+            <button type="button" data-aura="violet" aria-label="Dream violet" aria-checked="false" role="radio"></button>
+            <button type="button" data-aura="moss" aria-label="Moss green" aria-checked="false" role="radio"></button>
+            <button type="button" data-aura="rose" aria-label="Bloom rose" aria-checked="false" role="radio"></button>
+          </div>
+        </section>
+
+        <section class="custom-panel surface-card wardrobe-panel">
+          <header><div><p>WARDROBE</p><h2>Little treasures</h2></div><button type="button" id="clear-outfit-button">Reset</button></header>
+          <div class="wardrobe-row">
+            <button class="is-selected" type="button" data-outfit="none"><span>—</span><small>Simple</small></button>
+            <button type="button" data-outfit="star"><span>★</span><small>Star pin</small></button>
+            <button type="button" data-outfit="satchel"><span>▣</span><small>Satchel</small></button>
+            <button type="button" data-outfit="crown"><span>♛</span><small>Moon crown</small></button>
+          </div>
+        </section>
+
+        <section class="care-detail surface-card">
+          <header><div><p>CARE STATE</p><h2>Today's rhythm</h2></div><span id="care-summary">3 needs steady</span></header>
+          <div class="detail-stat"><span>Happiness</span><progress id="detail-happiness" max="100" value="82"></progress><b id="detail-happiness-value">82</b></div>
+          <div class="detail-stat"><span>Energy</span><progress id="detail-energy" max="100" value="68"></progress><b id="detail-energy-value">68</b></div>
+          <div class="detail-stat"><span>Fullness</span><progress id="detail-hunger" max="100" value="74"></progress><b id="detail-hunger-value">74</b></div>
+          <div class="detail-stat"><span>Cleanliness</span><progress id="detail-cleanliness" max="100" value="91"></progress><b id="detail-cleanliness-value">91</b></div>
+        </section>
+      </section>
+
+      <section class="app-view" data-view="play" aria-labelledby="play-title" hidden>
+        <div class="view-heading">
+          <div><p>POCKET ACTIVITIES</p><h1 id="play-title">A little adventure.</h1></div>
+          <div class="currency-pill"><span>✦</span><b data-coin-count>120</b></div>
+        </div>
+
+        <section class="fishing-card surface-card" id="fishing-card">
+          <div class="fishing-sky"><i></i><i></i><span class="fishing-moon"></span></div>
+          <div class="fishing-water"><span class="bobber"></span><i></i><i></i><i></i></div>
+          <div class="activity-copy"><p>MOONPOND</p><h2 id="fishing-title">Cast into the quiet</h2><small id="fishing-copy">Costs 8 energy · six shimmering catches</small></div>
+          <button id="cast-button" type="button"><span>Cast line</span><small>8 ⚡</small></button>
+        </section>
+
+        <section class="section-block">
+          <header class="section-title"><div><p>WINDOW GARDEN</p><h2>Glowcap plots</h2></div><span id="garden-ready-count">1 ready</span></header>
+          <div class="garden-grid" id="garden-grid" aria-label="Three garden plots"></div>
+          <p class="section-hint">Tap an empty plot to plant, then water it. Glowcaps ripen quickly in your pocket habitat.</p>
+        </section>
+
+        <section class="section-block">
+          <header class="section-title"><div><p>COLLECTIONS</p><h2>Things we've found</h2></div><button type="button" id="collection-button">See all</button></header>
+          <div class="collection-grid">
+            <article><span class="collection-icon fish-icon">◒</span><div><b id="fish-collection-count">0 / 6</b><small>Moonpond fish</small></div></article>
+            <article><span class="collection-icon crop-icon">♧</span><div><b id="crop-collection-count">0 / 4</b><small>Garden crops</small></div></article>
+            <article><span class="collection-icon style-icon">✦</span><div><b id="style-collection-count">1 / 4</b><small>Little treasures</small></div></article>
+          </div>
+        </section>
+
+        <section class="quest-list surface-card">
+          <header><div><p>MINI QUESTS</p><h2>Today's trail</h2></div><span id="quest-complete-count">0 / 3</span></header>
+          <div id="quest-list"></div>
+        </section>
+      </section>
+
+      <section class="app-view desktop-only" data-view="remote" aria-labelledby="remote-title" hidden>
+        <div class="view-heading">
+          <div><p>CONNECTED PC</p><h1 id="remote-title">Your desk, nearby.</h1></div>
+          <span class="remote-state-pill" id="remote-state-pill"><i></i><b>Offline</b></span>
+        </div>
+
+        <section class="pair-screen" id="pair-screen">
+          <div class="pair-orbit" aria-hidden="true"><span></span><i></i><b>H</b><em>PC</em></div>
+          <div class="pair-intro"><p>PRIVATE WI-FI LINK</p><h2>Pair this phone</h2><span id="pair-instructions">Start Remote Link in HEYMI on your PC. Enter its six-digit code here, then approve this phone on the desktop.</span></div>
+          <div class="pair-form surface-card" id="pair-form">
+            <label class="native-only"><span>PC ADDRESS</span><input id="pc-address" type="url" inputmode="url" autocapitalize="none" autocomplete="url" placeholder="http://192.168.1.20:54321"></label>
+            <label><span>PHONE NAME</span><input id="device-name" type="text" maxlength="48" autocomplete="nickname" value="My phone"></label>
+            <label><span>PAIRING CODE</span><input id="pair-code" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="000000"></label>
+            <button id="pair-button" type="button">Request access <span>→</span></button>
+          </div>
+          <p class="remote-message" id="pair-status" role="status">Phone and PC must be on the same private network.</p>
+        </section>
+
+        <section class="control-screen" id="control-screen" hidden>
+          <section class="connected-banner surface-card">
+            <span class="connected-icon">✓</span><div><p>CONNECTED DEVICE</p><h2 id="connected-name">Phone controller</h2></div><button id="disconnect-button" type="button">Disconnect</button>
+          </section>
+          <div class="permission-strip" id="permission-strip" aria-label="Enabled remote permissions"></div>
+          <div class="remote-mode-tabs" role="tablist" aria-label="Remote control mode">
+            <button class="is-selected" type="button" data-remote-mode="mouse" role="tab" aria-selected="true">Touchpad</button>
+            <button type="button" data-remote-mode="keys" role="tab" aria-selected="false">Keys</button>
+          </div>
+
+          <section class="remote-mode is-active" data-remote-panel="mouse">
+            <div class="touchpad" id="touchpad" role="application" aria-label="Desktop mouse touchpad">
+              <div class="touch-grid" aria-hidden="true"></div><span class="touch-ring" aria-hidden="true"></span>
+              <div class="touch-copy"><b>DRAG TO MOVE</b><small>Tap to click · two-finger drag to scroll</small></div>
+            </div>
+            <div class="mouse-buttons"><button type="button" id="left-click">Left click</button><button type="button" id="right-click">Right click</button></div>
+            <label class="sensitivity-control"><span>Pointer speed</span><input id="sensitivity" type="range" min="0.5" max="2.5" value="1.25" step="0.25"></label>
+          </section>
+
+          <section class="remote-mode" data-remote-panel="keys" hidden>
+            <div class="text-command" id="text-command"><input id="text-input" type="text" maxlength="1000" autocomplete="off" placeholder="Type on your PC"><button id="send-text" type="button">Send</button></div>
+            <div class="key-grid" id="key-grid">
+              <button type="button" data-key="escape">Esc</button><button type="button" data-key="tab">Tab</button><button type="button" data-key="backspace">⌫</button><button type="button" data-key="enter">Enter</button>
+              <button type="button" data-key="home">Home</button><button type="button" data-key="left">←</button><button type="button" data-key="up">↑</button><button type="button" data-key="right">→</button>
+              <button type="button" data-key="end">End</button><button type="button" data-key="delete">Del</button><button type="button" data-key="down">↓</button><button type="button" data-key="space">Space</button>
+            </div>
+          </section>
+          <p class="remote-message" id="control-status" role="status">Remote input ready.</p>
+        </section>
+      </section>
+
+      <section class="app-view" data-view="you" aria-labelledby="you-title" hidden>
+        <div class="view-heading">
+          <div><p>YOUR SPACE</p><h1 id="you-title">Pocket profile.</h1></div>
+          <button class="round-button settings-mark" id="about-button" type="button" aria-label="About HEYMI Pocket">⌁</button>
+        </div>
+
+        <section class="profile-card surface-card">
+          <div class="large-avatar">M</div>
+          <div><p>LOCAL KEEPER</p><h2 id="profile-name">My HEYMI</h2><span>With <b id="profile-pet-name">Mimi</b> · <b id="profile-streak">3</b> day streak</span></div>
+          <button id="rename-button" type="button">Rename</button>
+        </section>
+
+        <div class="profile-metrics">
+          <article><span>✦</span><b data-coin-count>120</b><small>Pocket coins</small></article>
+          <article><span>◇</span><b id="profile-collection-count">1</b><small>Finds</small></article>
+          <article><span>♥</span><b id="profile-bond-value">64</b><small>Bond</small></article>
+        </div>
+
+        <section class="settings-card surface-card">
+          <header><p>POCKET SETTINGS</p><h2>How HEYMI feels</h2></header>
+          <label class="setting-row"><span><b>Gentle haptics</b><small>Feedback for care and catches</small></span><input type="checkbox" id="haptics-setting" checked><i></i></label>
+          <label class="setting-row"><span><b>Reduced motion</b><small>Quiet room and pet animation</small></span><input type="checkbox" id="motion-setting"><i></i></label>
+          <label class="setting-row"><span><b>High contrast</b><small>Brighter text and controls</small></span><input type="checkbox" id="contrast-setting"><i></i></label>
+        </section>
+
+        <section class="pc-card surface-card desktop-only">
+          <span class="pc-card-icon">H</span><div><p>HEYMI DESKTOP</p><h2 id="profile-link-title">No PC linked</h2><small id="profile-link-copy">Pair over private Wi-Fi to use your phone as a remote.</small></div><button type="button" data-open-tab="remote">Open</button>
+        </section>
+
+        <section class="settings-card surface-card install-card" id="install-card">
+          <header><p>APP MODE</p><h2>Keep HEYMI close</h2></header>
+          <p>Install HEYMI Pocket from Safari for its own Home Screen icon and full-screen app window.</p>
+          <button id="install-button" type="button">How to install</button>
+        </section>
+
+        <section class="settings-card surface-card data-card" id="data-card">
+          <header><p>YOUR DATA</p><h2>Keep your progress safe</h2></header>
+          <p>Progress lives in this browser without an account. Export a backup before changing phones, browsers, or the app address.</p>
+          <div class="data-button-grid"><button id="export-data-button" type="button">Export backup</button><button id="import-data-button" type="button">Restore backup</button></div>
+          <input id="import-data-file" type="file" accept="application/json,.json" hidden>
+          <button class="privacy-button" id="privacy-button" type="button">Privacy and local storage</button>
+        </section>
+
+        <div class="data-actions"><button id="reset-data-button" type="button">Reset game progress</button><button class="erase-button" id="erase-data-button" type="button">Erase all HEYMI data</button><small>Backups contain your chosen names and game progress, but never Remote Link credentials.</small><a href="./privacy.html">Read the privacy notice</a></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="is-active" type="button" data-tab="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-6H9v6H3Z"/></svg><span>Home</span></button>
+      <button type="button" data-tab="pet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5 0 8-3.4 8-8 0-3.5-2.1-6-5-6.8L13 3h-2L9 6.2C6.1 7 4 9.5 4 13c0 4.6 3 8 8 8Z"/><path d="M8.5 13.5h.01M15.5 13.5h.01M10 17c1.3.8 2.7.8 4 0"/></svg><span>Pet</span></button>
+      <button type="button" data-tab="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h8l4 5v8a2 2 0 0 1-3.4 1.4L14 17h-4l-2.6 2.4A2 2 0 0 1 4 18v-8Z"/><path d="M8 10v4M6 12h4M15.5 11.5h.01M17.5 13.5h.01"/></svg><span>Play</span></button>
+      <button class="desktop-only" type="button" data-tab="remote"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 10h.01M11 10h.01M14 10h.01"/></svg><span>Remote</span><i class="nav-link-dot"></i></button>
+      <button type="button" data-tab="you"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c.5-4.3 3-7 8-7s7.5 2.7 8 7"/></svg><span>You</span></button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span id="toast-icon">✦</span><div><b id="toast-title">Pocket updated</b><small id="toast-copy">Your progress is saved.</small></div></div>
+  <dialog class="pocket-dialog" id="pocket-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-copy"><div><button class="dialog-close" type="button" aria-label="Close">×</button><span class="dialog-icon" id="dialog-icon">✦</span><p id="dialog-kicker">HEYMI POCKET</p><h2 id="dialog-title">A small wonder</h2><div id="dialog-copy"></div><button class="dialog-action" type="button">Done</button></div></dialog>
+  <script src="./app.js?v=1.0.0-beta.3"></script>
+</body>
+</html>

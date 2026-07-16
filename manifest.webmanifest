@@ -1,0 +1,59 @@
+{
+  "id": "./",
+  "name": "HEYMI Pocket Beta",
+  "short_name": "HEYMI",
+  "description": "A cozy companion game with pet care, activities, quests, and collections.",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "portrait-primary",
+  "background_color": "#10120f",
+  "theme_color": "#10120f",
+  "categories": [
+    "games",
+    "lifestyle"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Care for my companion",
+      "short_name": "Pet",
+      "url": "./?tab=pet"
+    },
+    {
+      "name": "Pocket activities",
+      "short_name": "Play",
+      "url": "./?tab=play"
+    },
+    {
+      "name": "My pocket profile",
+      "short_name": "You",
+      "url": "./?tab=you"
+    }
+  ]
+}

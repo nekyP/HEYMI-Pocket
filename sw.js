@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "heymi-pocket-";
-const CACHE_NAME = `${CACHE_PREFIX}beta-1.0.0`;
+const CACHE_NAME = `${CACHE_PREFIX}beta-1.0.1`;
 const SCOPE_URL = new URL(self.registration.scope);
 const APP_URL = new URL("./", SCOPE_URL).href;
 const PRIVACY_URL = new URL("./privacy.html", SCOPE_URL).href;

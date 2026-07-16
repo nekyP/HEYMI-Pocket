@@ -1,18 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="bg" x1="72" y1="34" x2="438" y2="474" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#282922"/><stop offset="1" stop-color="#0e100e"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="158" y1="126" x2="354" y2="390" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffe09a"/><stop offset="1" stop-color="#bd8439"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <path d="M118 171 64 95c-6-9 4-20 14-15l105 57M394 171l54-76c6-9-4-20-14-15l-105 57" fill="#d3c5ab" stroke="#5c503d" stroke-width="15" stroke-linejoin="round"/>
-  <path d="M131 219c0-91 55-141 125-141s125 50 125 141v85c0 88-51 139-125 139s-125-51-125-139Z" fill="#eee5d5" stroke="url(#gold)" stroke-width="18"/>
-  <path d="M139 206c11-83 62-128 117-128s106 45 117 128c-35-28-74-43-117-43s-82 15-117 43Z" fill="#242722"/>
-  <ellipse cx="205" cy="265" rx="20" ry="25" fill="#171a18"/><ellipse cx="307" cy="265" rx="20" ry="25" fill="#171a18"/>
-  <path d="M256 272v35M239 290h34" stroke="#9b7143" stroke-width="9" stroke-linecap="round"/>
-  <path d="M214 350c28 15 56 15 84 0" fill="none" stroke="#8c6740" stroke-width="9" stroke-linecap="round"/>
-  <path d="m256 31 10 26 27 3-21 18 7 27-23-14-23 14 7-27-21-18 27-3Z" fill="#f5c873"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
+  <title id="title">HEYMI Origin</title>
+  <desc id="description">The HEYMI Origin companion with a peaked dark hood, pale stitched face, hanging ears, rust-colored ear tips, and layered cloak.</desc>
+  <rect x="48" y="48" width="928" height="928" rx="218" fill="#090b0d" stroke="#a87b3f" stroke-width="24"/>
+  <rect x="78" y="78" width="868" height="868" rx="194" fill="#15191b" stroke="#3a4547" stroke-width="8"/>
+  <circle cx="512" cy="512" r="352" fill="#20272a" stroke="#695139" stroke-width="12"/>
+
+  <path d="M256 333c-80 86-116 243-92 383 11 66 47 104 91 84 60-28 82-159 95-311Z" fill="#ded6c9" stroke="#17191b" stroke-width="28"/>
+  <path d="M768 333c80 86 116 243 92 383-11 66-47 104-91 84-60-28-82-159-95-311Z" fill="#ded6c9" stroke="#17191b" stroke-width="28"/>
+  <path d="M170 681c10 81 42 135 85 119 26-10 47-42 61-87l-110-69Z" fill="#9a5c25"/>
+  <path d="M854 681c-10 81-42 135-85 119-26-10-47-42-61-87l110-69Z" fill="#9a5c25"/>
+
+  <path d="M263 442c20-180 95-303 249-345 154 42 229 165 249 345l-100 146H363Z" fill="#1a1d20" stroke="#090b0d" stroke-width="30"/>
+  <path d="m512 103 45 62-45 72-45-72Z" fill="#31373a" stroke="#a87b3f" stroke-width="12"/>
+  <ellipse cx="512" cy="441" rx="245" ry="216" fill="#e4ded4" stroke="#282a2c" stroke-width="24"/>
+  <ellipse cx="407" cy="454" rx="47" ry="65" fill="#0c1012"/>
+  <ellipse cx="617" cy="454" rx="47" ry="65" fill="#0c1012"/>
+  <circle cx="422" cy="438" r="11" fill="#aeb8b8"/>
+  <circle cx="632" cy="438" r="11" fill="#aeb8b8"/>
+  <path d="M512 337v34M489 397h46M512 374v46" fill="none" stroke="#5d5045" stroke-width="13" stroke-linecap="round"/>
+  <path d="M512 519v52M484 545h56" fill="none" stroke="#353638" stroke-width="13" stroke-linecap="round"/>
+
+  <path d="M320 623c49-55 113-83 192-83s143 28 192 83l77 249H243Z" fill="#252a2d" stroke="#111315" stroke-width="28"/>
+  <path d="m512 575 64 62-64 76-64-76Z" fill="#111416" stroke="#8f7650" stroke-width="15"/>
+  <path d="M512 707v139M466 747h92M479 805h66" fill="none" stroke="#9c8d78" stroke-width="18" stroke-linecap="round"/>
 </svg>

@@ -1,0 +1,21 @@
+{
+  "schema": "heymi-compute-consumer@1",
+  "projectId": "heymi-pocket",
+  "repository": "nekyP/HEYMI-Pocket",
+  "mode": "developer-source-only",
+  "sharedEngine": "nekyP/HEYMI:tools/black-sheep-compute/cli.mjs",
+  "sharedEngineEnvironment": "HEYMI_COMPUTE_CLI",
+  "node": ">=24",
+  "sourceScopes": [
+    "."
+  ],
+  "operations": [
+    "local-pack",
+    "local-check",
+    "doctor"
+  ],
+  "inferenceByThisConsumer": false,
+  "applicationDataAccess": false,
+  "hostedRuntimeIntegration": false,
+  "policySource": "AGENTS.md"
+}

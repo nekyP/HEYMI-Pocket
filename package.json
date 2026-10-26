@@ -1,0 +1,15 @@
+{
+  "name": "heymi-pocket-development",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "compute:pack": "node scripts/heymi-compute.mjs pack",
+    "compute:check": "node scripts/heymi-compute.mjs check",
+    "compute:doctor": "node scripts/heymi-compute.mjs doctor",
+    "compute:test": "node --test scripts/heymi-compute.test.mjs"
+  }
+}

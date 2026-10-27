@@ -20,3 +20,17 @@ These developer commands need Node.js 24+ and a separately available HEYMI sourc
 checkout. They do not install a backend into this static app or bypass the actual
 desktop pairing flow. Keep private runtime state and credentials out of this
 public repository.
+
+## Offline shell protection
+
+The service worker caches only known public app files and the app, index and
+privacy pages. API and unknown paths, authorization headers and arbitrary query
+parameters bypass its cache handler. Public tab links and versioned assets retain
+offline support. Shell refreshes omit cookies and refuse redirects; private and
+`no-store` responses cannot replace cached public files. The cache revision clears
+older shell caches when the updated worker activates.
+
+Run the source-compute and service-worker regression tests with `npm test`.
+Browser verification is still required when changing the shipped PWA. This source
+change does not update an already installed PWA until its host serves the new
+worker and the browser activates it.

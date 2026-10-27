@@ -7,6 +7,7 @@
     "node": ">=24"
   },
   "scripts": {
+    "test": "node --test scripts/*.test.mjs",
     "compute:pack": "node scripts/heymi-compute.mjs pack",
     "compute:check": "node scripts/heymi-compute.mjs check",
     "compute:doctor": "node scripts/heymi-compute.mjs doctor",
